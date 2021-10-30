@@ -22,6 +22,14 @@ class Client extends Model
     ];
 
     /**
+     * Returns client full name
+     */
+    public function getFullNameAttribute()
+    {
+        return $this->lastName." ".$this->firstName;
+    }
+
+    /**
      * Get the commands for client.
      */
     public function commands()

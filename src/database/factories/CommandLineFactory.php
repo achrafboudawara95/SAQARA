@@ -18,7 +18,7 @@ class CommandLineFactory extends Factory
         return [
             "name" => $this->faker->name(),
             "ref" => $this->faker->uuid(),
-            "quantity" => $this->faker->randomDigit(),
+            "quantity" => $this->faker->numberBetween(1, 3),
             "price" => $this->faker->randomFloat(3, 5, 1000),
         ];
     }

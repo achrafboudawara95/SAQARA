@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\CommandsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +22,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+// Routes need authentication
+Route::middleware(['auth'])->group(function (){
+    Route::get('/clients', [ClientsController::class, 'index'])->name("clients");
+    Route::get('/commands', [CommandsController::class, 'index'])->name("commands");
+});
 
 require __DIR__.'/auth.php';

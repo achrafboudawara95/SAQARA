@@ -23,6 +23,10 @@ class Command extends Model
         'price'
     ];
 
+    protected $casts = [
+        'date' => 'datetime:d-m-Y',
+    ];
+
     /**
      * Get the client that owns the command.
      */
