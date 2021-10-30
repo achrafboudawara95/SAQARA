@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <table class="table-auto">
+            <table class="table-auto divide-y divide-gray-300">
                 <thead class="bg-gray-50">
                 <tr>
                     <th>Client</th>
@@ -17,7 +17,7 @@
                     <th>Prix total de la commande</th>
                 </tr>
                 </thead>
-                <tbody class="bg-white">
+                <tbody class="bg-white divide-y divide-gray-300">
                 @foreach($commands as $command)
                 <tr class="whitespace-nowrap">
                     <td>{{ $command->client->full_name }}</td>

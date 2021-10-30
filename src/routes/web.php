@@ -26,6 +26,8 @@ Route::get('/dashboard', function () {
 // Routes need authentication
 Route::middleware(['auth'])->group(function (){
     Route::get('/clients', [ClientsController::class, 'index'])->name("clients");
+    Route::get('/clients/export', [ClientsController::class, 'exportCsv'])->name("clients.export.csv");
+
     Route::get('/commands', [CommandsController::class, 'index'])->name("commands");
 });
 

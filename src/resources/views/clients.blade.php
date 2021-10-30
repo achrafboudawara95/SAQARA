@@ -7,7 +7,10 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <table class="table-auto">
+            <a href="{{route("clients.export.csv")}}" target="_blank" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
+                Export
+            </a>
+            <table class="table-auto my-2">
                 <thead>
                 <tr>
                     <th>Prénom</th>
