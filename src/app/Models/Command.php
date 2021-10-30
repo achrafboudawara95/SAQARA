@@ -17,7 +17,10 @@ class Command extends Model
     protected $fillable = [
         'date',
         'number',
-        'price',
+    ];
+
+    protected $appends = [
+        'price'
     ];
 
     /**
@@ -34,5 +37,22 @@ class Command extends Model
     public function commandLines()
     {
         return $this->hasMany(CommandLine::class);
+    }
+
+    public function getPriceAttribute()
+    {
+        // If relation is not loaded already, let's do it first
+        if ( ! $this->relationLoaded('commandLines'))
+            $this->load('commandLines');
+
+        /** @var CommandLine $commandLines */
+        $commandLines = $this->getRelation('commandLines');
+
+        $price = 0;
+        foreach ($commandLines as $commandLine)
+        {
+            $price += $commandLine->price * $commandLine->quantity;
+        }
+        return $price;
     }
 }

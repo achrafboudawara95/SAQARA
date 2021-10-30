@@ -17,7 +17,6 @@ class CreateCommandsTable extends Migration
             $table->id();
             $table->timestamp('date');
             $table->string('number')->unique();
-            $table->double('price',8,3);
             $table->foreignId('client_id');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->timestamps();
