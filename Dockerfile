@@ -66,8 +66,8 @@ ADD resources/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 #------------- Container Config ---------------------------------------------------------------
 
-# Expose port 8080
-EXPOSE 8080
+# Expose port 80
+EXPOSE 80
 
 # Set supervisor to manage container processes
 ENTRYPOINT ["/usr/bin/supervisord"]

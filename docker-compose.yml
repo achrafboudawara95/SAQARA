@@ -11,7 +11,7 @@ services:
       MYSQL_DATABASE: DB_SAQARA
       command: --init-file /data/application/init.sql
     volumes:
-      - ./database/mysql-data:/var/lib/mysql:rw
+      - ./mysql-data:/var/lib/mysql:rw
       - ./init.sql:/data/application/init.sql
 
   phpmyadmin:
@@ -33,7 +33,7 @@ services:
     volumes:
       - ./src:/var/www/html
     ports:
-      - "3001:8080"
+      - "3001:80"
     depends_on:
       - mysql
 
